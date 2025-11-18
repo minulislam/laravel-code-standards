@@ -1,5 +1,5 @@
 {
-    "name": "Multicoin/laravel-code-standards",
+    "name": "multicoin/laravel-code-standards",
     "description": "Strict OOP code standards for Laravel with automated linting and review tools",
     "type": "library",
     "keywords": [
