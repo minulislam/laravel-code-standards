@@ -1,0 +1,36 @@
+includes:
+    - ./vendor/larastan/larastan/extension.neon
+
+parameters:
+    level: 8
+    paths:
+        - app
+        - config
+        - database
+        - routes
+    
+    # Exclude paths
+    excludePaths:
+        - vendor
+        - storage
+        - bootstrap/cache
+    
+    # PHPStan 2.0 strict rules
+    checkUninitializedProperties: true
+    checkDynamicProperties: true
+    checkMissingCallableSignature: true
+    checkTooWideReturnTypesInProtectedAndPublicMethods: true
+    checkImplicitMixed: true
+    checkBenevolentUnionTypes: true
+    
+    # Error reporting
+    reportUnmatchedIgnoredErrors: true
+    treatPhpDocTypesAsCertain: false
+    
+    # Ignore patterns
+    ignoreErrors:
+        # Allow Laravel facade static calls (they're OK!)
+        - '#Call to an undefined static method Illuminate\\Support\\Facades\\[a-zA-Z]+::[a-zA-Z]+\(\)#'
+        
+        # Allow missing property types on Eloquent models (optional - remove if you want strict)
+        # - '#Property [a-zA-Z0-9\\_]+::\$[a-zA-Z]+ has no type specified#'
